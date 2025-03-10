@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 interface ProceduresCardProps {
   imageSrc: string
   title: string
@@ -8,9 +10,11 @@ export default function ProceduresCard({ imageSrc, title, description }: Procedu
   return (
     <div className="card">
       <figure className="px-10 pt-10">
-        <img
+        <Image
           src={imageSrc}
           alt={title}
+          width={500}
+          height={300}
           className="rounded-xl w-[250px] h-[150px] md:w-[500px] md:h-[300px] object-cover" />
       </figure>
       <div className="card-body items-center text-center">
