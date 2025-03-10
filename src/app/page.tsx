@@ -7,7 +7,7 @@ import ethicImage from "../../public/assets/etica.png"
 import attentionImage from "../../public/assets/atencion.png"
 import OptionCard from "@/components/OptionCard"
 import ProceduresCard from "@/components/ProceduresCard"
-import procedures, { groupProcedures } from "@/data/procedures"
+import procedures, { groupProcedures, Procedure } from "@/data/procedures"
 import { Key } from "react"
 import Map from "@/components/Map"
 import Patients from "@/components/Patients"
@@ -41,7 +41,7 @@ export default function Home() {
         <div className="flex flex-col bg-blue-950 text-white px-32 py-16 items-center justify-around">
           <p className="font-bold text-4xl text-center">Tratamientos en los que me especializo</p>
           <div className="carousel rounded-box w-xl md:w-full">
-            {groupedProcedures.map((group: any[], groupIndex: Key | null | undefined) => (
+            {groupedProcedures.map((group: Procedure[], groupIndex: Key | null | undefined) => (
               <div key={groupIndex} className="carousel-item">
                 {group.map((procedure, index) => (
                   <div key={index} className="flex-1">

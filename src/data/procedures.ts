@@ -8,6 +8,12 @@ import procedure30 from "../../public/assets/procedures30.png"
 import procedure31 from "../../public/assets/procedures31.jpg"
 import procedure32 from "../../public/assets/procedures32.png"
 
+export interface Procedure {
+  imageSrc: string;
+  title: string;
+  description: string;
+}
+
 const procedures = [
   {
     imageSrc: procedure10.src,
@@ -54,17 +60,17 @@ const procedures = [
     title: "Implantes dentales",
     description: "Tratamiento efectivo y duradero, mejorando tanto la salud oral como la apariencia del paciente."
   }
-];
+]
 
-export default procedures;
+export default procedures
 
-export function groupProcedures(procedures: any[], groupSize: number) {
-    return procedures.reduce((result, item, index) => {
-      const groupIndex = Math.floor(index / groupSize);
-      if (!result[groupIndex]) {
-        result[groupIndex] = [];
-      }
-      result[groupIndex].push(item);
-      return result;
-    }, []);
-  }
+export function groupProcedures(procedures: Procedure[], groupSize: number) {
+  return procedures.reduce((result: Procedure[][], item, index) => {
+    const groupIndex = Math.floor(index / groupSize)
+    if (!result[groupIndex]) {
+      result[groupIndex] = []
+    }
+    result[groupIndex].push(item)
+    return result
+  }, [])
+}
